@@ -5,17 +5,22 @@ import PackageDescription
 
 let package = Package(
     name: "HtmlFormsService",
+    platforms: [
+        .macOS("13")
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "HtmlFormsService",
             targets: ["HtmlFormsService"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/gulachek/CatuiServer.swift.git", branch: "master")
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "HtmlFormsService"),
+            name: "HtmlFormsService",
+            dependencies: [.product(name: "CatuiServer", package: "CatuiServer.swift")]
+            ),
         .testTarget(
             name: "HtmlFormsServiceTests",
             dependencies: ["HtmlFormsService"]),
