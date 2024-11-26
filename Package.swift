@@ -14,7 +14,7 @@ let package = Package(
             targets: ["HtmlFormsService"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/gulachek/CatuiServer.swift.git", branch: "master")
+        .package(path: "../CatuiServer.swift")
     ],
     targets: [
         .target(
